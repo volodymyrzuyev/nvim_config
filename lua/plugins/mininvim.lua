@@ -20,6 +20,8 @@ return {
 
 			require("mini.tabline").setup()
 
+			require("mini.indentscope").setup()
+
 			-- Simple and easy statusline.
 			--  You could remove this setup call if you don't like it,
 			--  and try some other statusline plugin
