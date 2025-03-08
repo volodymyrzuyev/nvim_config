@@ -5,7 +5,7 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- Diagnostic keymaps
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
-vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float,{desc = 'Show [e]rror message'})
+vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, { desc = "Show [e]rror message" })
 
 -- Exit terminal mode in the builtin terminal with a shortcut that is a bit easier
 -- for people to discover. Otherwise, you normally need to press <C-\><C-n>, which
@@ -34,4 +34,4 @@ vim.keymap.set("n", "<C-k>", "<C-w><C-k>", { desc = "Move focus to the upper win
 vim.keymap.set("n", "<Tab>", "<cmd>bn<CR>")
 vim.keymap.set("n", "<leader><Tab>", "<cmd>bp<CR>")
 
-vim.keymap.set("n", "<leader>x", "<cmd>bd<CR>")
+vim.keymap.set("n", "<leader>x", "<cmd> bn | bd# <CR>")

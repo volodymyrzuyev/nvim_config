@@ -16,8 +16,7 @@ return {
 					},
 				},
 			})
-			vim.keymap.set("n", "<leader>E", "<cmd>Neotree last<CR>")
-			vim.keymap.set("n", "<leader>X", "<cmd>Neotree close<CR>")
+			vim.keymap.set("n", "<leader>E", "<cmd>Neotree toggle<CR>")
 		end,
 	},
 }
