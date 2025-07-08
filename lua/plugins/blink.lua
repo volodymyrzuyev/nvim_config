@@ -22,10 +22,16 @@ return {
 				},
 				sources = {
 					per_filetype = {
+						org = { "orgmode", "path", "buffer", "snippets" },
 						codecompanion = { "codecompanion" },
 					},
 					default = { "lazydev", "lsp", "path", "snippets", "buffer" },
 					providers = {
+						orgmode = {
+							name = "Orgmode",
+							module = "orgmode.org.autocompletion.blink", -- This points to nvim-orgmode's completion module
+							fallbacks = { "buffer" }, -- Can fall back to buffer completion if orgmode source has no match
+						},
 						cmdline = {
 							min_keyword_length = 2,
 						},

@@ -24,7 +24,7 @@ return {
 				mappings = {
 					n = {
 						["d"] = require("telescope.actions").delete_buffer,
-                        ["<C-c>"] =require("telescope.actions").close,
+						["<C-c>"] = require("telescope.actions").close,
 					},
 				},
 			},
@@ -46,7 +46,7 @@ return {
 		vim.keymap.set(
 			"n",
 			"<leader><leader>",
-			"<cmd>Telescope buffers sort_mru=true sort_lastused=true initial_mode=normal theme=ivy<cr>",
+			"<cmd>Telescope buffers sort_mru=true sort_lastused=true initial_mode=normal<cr>",
 			{ desc = "[ ] Find existing buffers" }
 		)
 

@@ -21,6 +21,9 @@ require("lazy").setup({
 	rocks = {
 		enabled = false,
 	},
-	install = { colorscheme = { "retrobox" } },
-	checker = { enabled = true },
+	install = { colorscheme = { "catppuccin-macchiato" } },
+	checker = { enabled = true, notify = false },
 })
+
+vim.opt.background = 'dark'
+vim.cmd([[colorscheme rose-pine]])

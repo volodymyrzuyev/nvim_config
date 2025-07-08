@@ -4,6 +4,9 @@ return {
 		vim.lsp.enable({
 			"lua_ls",
 			"pyright",
+			"ts_ls",
+			"gopls",
+			"marksman",
 		})
 
 		vim.diagnostic.config({

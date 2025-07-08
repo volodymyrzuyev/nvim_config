@@ -28,4 +28,7 @@ vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.g.have_nerd_font = true
-vim.cmd([[colorscheme retrobox]])
+
+vim.opt.conceallevel = 2
+vim.opt.concealcursor = "nc"
+vim.opt.wrap = false
