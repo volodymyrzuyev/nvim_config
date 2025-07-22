@@ -1,6 +1,21 @@
 return {
-	"nvim-treesitter/nvim-treesitter",
-	branch = "master", -- This is fine for the plugin itself
-	lazy = false,
-	build = ":TSUpdate", -- This builds ALL parsers listed in ensure_installed
+	{
+		"nvim-treesitter/nvim-treesitter",
+		event = { "BufReadPost", "BufNewFile" },
+		cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
+		build = ":TSUpdate",
+		opts = {
+			ensure_installed = { "lua", "luadoc", "printf", "vim", "vimdoc" },
+
+			highlight = {
+				enable = true,
+				use_languagetree = true,
+			},
+
+			indent = { enable = true },
+		},
+		config = function(_, opts)
+			require("nvim-treesitter.configs").setup(opts)
+		end,
+	},
 }
