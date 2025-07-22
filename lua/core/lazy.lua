@@ -24,6 +24,3 @@ require("lazy").setup({
 	install = { colorscheme = { "catppuccin-macchiato" } },
 	checker = { enabled = true, notify = false },
 })
-
-vim.opt.background = 'dark'
-vim.cmd([[colorscheme rose-pine]])
