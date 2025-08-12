@@ -1,3 +1,4 @@
+local orgPath = "~/org/"
 local baseTemplate = [[* TODO %?
     SCHEDULED: %T
     DEADLINE: %u]]
@@ -13,8 +14,8 @@ return {
 		local org = require("orgmode")
 
 		org.setup({
-			org_agenda_files = "/home/blueberry/org/**/*",
-			org_default_notes_file = "~/org/refile.org",
+			org_agenda_files = orgPath .. "**/*",
+			org_default_notes_file = orgPath .. "refile.org",
 			org_todo_keywords = {
 				"TODO",
 				"NEXT",
@@ -29,22 +30,22 @@ return {
 				s = {
 					description = "school todo",
 					template = baseTemplate,
-					target = "~/org/school/refile.org",
+					target = orgPath .. "school/refile.org",
 				},
 				p = {
 					description = "project todo",
 					template = baseTemplate,
-					target = "~/org/projects/refile.org",
+					target = orgPath .. "projects/refile.org",
 				},
 				t = {
 					description = "task",
 					template = baseTemplate,
-					target = "~/org/refile.org",
+					target = orgPath .. "refile.org",
 				},
 				n = {
 					description = "note",
 					template = "* %u %?",
-					target = "~/org/refile.org",
+					target = orgPath .. "refile.org",
 				},
 			},
 			org_tags_column = -80,
@@ -54,7 +55,7 @@ return {
 					types = {
 						{
 							type = "tags_todo",
-							org_agenda_files = { "~/org/projects/**/*" },
+							org_agenda_files = { orgPath .. "projects/**/*" },
 							org_agenda_todo_ignore_deadlines = "far",
 						},
 					},
@@ -64,14 +65,14 @@ return {
 					types = {
 						{
 							type = "agenda",
-							org_agenda_files = { "~/org/school/**/*" },
+							org_agenda_files = { orgPath .. "school/**/*" },
 							org_agenda_overriding_header = "School",
 							org_agenda_todo_ignore_deadlines = "far",
 						},
 						{
 							type = "tags_todo",
 							org_agenda_overriding_header = "TODO",
-							org_agenda_files = { "~/org/school/**/*" },
+							org_agenda_files = { orgPath .. "school/**/*" },
 						},
 					},
 				},
