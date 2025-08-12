@@ -1,6 +1,13 @@
+local baseTemplate = [[* TODO %?
+    SCHEDULED: %T
+    DEADLINE: %u]]
+
 return {
 	"nvim-orgmode/orgmode",
-	dependencies = { "akinsho/org-bullets.nvim" },
+	dependencies = {
+		"akinsho/org-bullets.nvim",
+		"danilshvalov/org-modern.nvim",
+	},
 	ft = { "org" },
 	config = function()
 		local org = require("orgmode")
@@ -20,14 +27,24 @@ return {
 			},
 			org_capture_templates = {
 				s = {
-					description = "school",
-					template = "* TODO %?\n  %u",
+					description = "school todo",
+					template = baseTemplate,
 					target = "~/org/school/refile.org",
 				},
 				p = {
-					description = "project",
-					template = "* TODO %?\n  %u",
+					description = "project todo",
+					template = baseTemplate,
 					target = "~/org/projects/refile.org",
+				},
+				t = {
+					description = "task",
+					template = baseTemplate,
+					target = "~/org/refile.org",
+				},
+				n = {
+					description = "note",
+					template = "* %u %?",
+					target = "~/org/refile.org",
 				},
 			},
 			org_tags_column = -80,
@@ -58,9 +75,38 @@ return {
 						},
 					},
 				},
+				d = {
+					description = "Today",
+					types = {
+						{
+							type = "agenda",
+							org_agenda_overriding_header = "Today",
+							org_agenda_span = "day",
+						},
+					},
+				},
 			},
 		})
-
-		require("org-bullets").setup()
+		local Menu = require("org-modern.menu")
+		require("orgmode").setup({
+			ui = {
+				menu = {
+					handler = function(data)
+						Menu:new({
+							window = {
+								margin = { 1, 0, 1, 0 },
+								padding = { 0, 1, 0, 1 },
+								title_pos = "center",
+								border = "single",
+								zindex = 1000,
+							},
+							icons = {
+								separator = "➜",
+							},
+						}):open(data)
+					end,
+				},
+			},
+		})
 	end,
 }

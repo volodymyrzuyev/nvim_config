@@ -22,15 +22,15 @@ return {
 				},
 				sources = {
 					per_filetype = {
-						org = { "orgmode", "path", "buffer", "snippets" },
+						org = { "orgmode" },
 						codecompanion = { "codecompanion" },
 					},
 					default = { "lazydev", "lsp", "path", "snippets", "buffer" },
 					providers = {
 						orgmode = {
 							name = "Orgmode",
-							module = "orgmode.org.autocompletion.blink", -- This points to nvim-orgmode's completion module
-							fallbacks = { "buffer" }, -- Can fall back to buffer completion if orgmode source has no match
+							module = "orgmode.org.autocompletion.blink",
+							fallbacks = { "buffer" },
 						},
 						cmdline = {
 							min_keyword_length = 2,
@@ -50,10 +50,6 @@ return {
 
 					enabled = false,
 					completion = { menu = { auto_show = true } },
-
-					keymap = {
-						["<CR>"] = { "accept_and_enter", "fallback" },
-					},
 				},
 				completion = {
 					menu = {
