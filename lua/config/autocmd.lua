@@ -47,6 +47,13 @@ vim.api.nvim_create_autocmd("FileType", {
 	end,
 })
 
+vim.api.nvim_create_autocmd({ "FileType" }, {
+  pattern = { "json", "jsonc" },
+  callback = function()
+    vim.opt.conceallevel = 0
+  end,
+})
+
 local orgmode_global_keymaps = vim.api.nvim_create_augroup("OrgmodeGlobalKeymaps", { clear = true })
 
 -- Define keymaps that you want to be available in *any* file
